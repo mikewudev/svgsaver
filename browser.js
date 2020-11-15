@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.SvgSaver = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.SvgSaver = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -256,7 +256,7 @@ var SvgSaver = (function () {
         el = el.querySelector('svg');
       }
       if (!isNode(el)) {
-        throw new Error('svgsaver: Can\'t find an svg element');
+        throw new Error("svgsaver: Can't find an svg element");
       }
       return el;
     }
@@ -270,15 +270,15 @@ var SvgSaver = (function () {
     }
 
     /**
-    * SvgSaver constructor.
-    * @constructs SvgSaver
-    * @api public
-    *
-    * @example
-    * var svgsaver = new SvgSaver();                      // creates a new instance
-    * var svg = document.querySelector('#mysvg');         // find the SVG element
-    * svgsaver.asSvg(svg);                                // save as SVG
-    */
+     * SvgSaver constructor.
+     * @constructs SvgSaver
+     * @api public
+     *
+     * @example
+     * var svgsaver = new SvgSaver();                      // creates a new instance
+     * var svg = document.querySelector('#mysvg');         // find the SVG element
+     * svgsaver.asSvg(svg);                                // save as SVG
+     */
   }]);
 
   function SvgSaver() {
@@ -294,12 +294,12 @@ var SvgSaver = (function () {
   }
 
   /**
-  * Return the cloned SVG after cleaning
-  *
-  * @param {SVGElement} el The element to copy.
-  * @returns {SVGElement} SVG text after cleaning
-  * @api public
-  */
+   * Return the cloned SVG after cleaning
+   *
+   * @param {SVGElement} el The element to copy.
+   * @returns {SVGElement} SVG text after cleaning
+   * @api public
+   */
 
   _createClass(SvgSaver, [{
     key: 'cloneSVG',
@@ -309,6 +309,7 @@ var SvgSaver = (function () {
 
       svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
       svg.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+      svg.setAttribute('xml:space', 'preserve');
       svg.setAttribute('version', 1.1);
 
       // height and width needed to download in FireFox
@@ -319,12 +320,12 @@ var SvgSaver = (function () {
     }
 
     /**
-    * Return the SVG HTML text after cleaning
-    *
-    * @param {SVGElement} el The element to copy.
-    * @returns {String} SVG text after cleaning
-    * @api public
-    */
+     * Return the SVG HTML text after cleaning
+     *
+     * @param {SVGElement} el The element to copy.
+     * @returns {String} SVG text after cleaning
+     * @api public
+     */
   }, {
     key: 'getHTML',
     value: function getHTML(el) {
@@ -346,12 +347,12 @@ var SvgSaver = (function () {
     }
 
     /**
-    * Return the SVG, after cleaning, as a text/xml Blob
-    *
-    * @param {SVGElement} el The element to copy.
-    * @returns {Blog} SVG as a text/xml Blob
-    * @api public
-    */
+     * Return the SVG, after cleaning, as a text/xml Blob
+     *
+     * @param {SVGElement} el The element to copy.
+     * @returns {Blog} SVG as a text/xml Blob
+     * @api public
+     */
   }, {
     key: 'getBlob',
     value: function getBlob(el) {
@@ -360,12 +361,12 @@ var SvgSaver = (function () {
     }
 
     /**
-    * Return the SVG, after cleaning, as a image/svg+xml;base64 URI encoded string
-    *
-    * @param {SVGElement} el The element to copy.
-    * @returns {String} SVG as image/svg+xml;base64 URI encoded string
-    * @api public
-    */
+     * Return the SVG, after cleaning, as a image/svg+xml;base64 URI encoded string
+     *
+     * @param {SVGElement} el The element to copy.
+     * @returns {String} SVG as image/svg+xml;base64 URI encoded string
+     * @api public
+     */
   }, {
     key: 'getUri',
     value: function getUri(el) {
@@ -378,13 +379,13 @@ var SvgSaver = (function () {
     }
 
     /**
-    * Saves the SVG as a SVG file using method compatible with the browser
-    *
-    * @param {SVGElement} el The element to copy.
-    * @param {string} [filename] The filename to save, defaults to the SVG title or 'untitled.svg'
-    * @returns {SvgSaver} The SvgSaver instance
-    * @api public
-    */
+     * Saves the SVG as a SVG file using method compatible with the browser
+     *
+     * @param {SVGElement} el The element to copy.
+     * @param {string} [filename] The filename to save, defaults to the SVG title or 'untitled.svg'
+     * @returns {SvgSaver} The SvgSaver instance
+     * @api public
+     */
   }, {
     key: 'asSvg',
     value: function asSvg(el, filename) {
@@ -397,12 +398,12 @@ var SvgSaver = (function () {
     }
 
     /**
-    * Gets the SVG as a PNG data URI.
-    *
-    * @param {SVGElement} el The element to copy.
-    * @param {Function} cb Call back called with the PNG data uri.
-    * @api public
-    */
+     * Gets the SVG as a PNG data URI.
+     *
+     * @param {SVGElement} el The element to copy.
+     * @param {Function} cb Call back called with the PNG data uri.
+     * @api public
+     */
   }, {
     key: 'getPngUri',
     value: function getPngUri(el, cb) {
@@ -417,13 +418,13 @@ var SvgSaver = (function () {
     }
 
     /**
-    * Saves the SVG as a PNG file using method compatible with the browser
-    *
-    * @param {SVGElement} el The element to copy.
-    * @param {string} [filename] The filename to save, defaults to the SVG title or 'untitled.png'
-    * @returns {SvgSaver} The SvgSaver instance
-    * @api public
-    */
+     * Saves the SVG as a PNG file using method compatible with the browser
+     *
+     * @param {SVGElement} el The element to copy.
+     * @param {string} [filename] The filename to save, defaults to the SVG title or 'untitled.png'
+     * @returns {SvgSaver} The SvgSaver instance
+     * @api public
+     */
   }, {
     key: 'asPng',
     value: function asPng(el, filename) {
